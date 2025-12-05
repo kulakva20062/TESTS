@@ -71,6 +71,10 @@ class TriangleTestCase(unittest.TestCase):
         res = area(2.5, 1.6)
         self.assertAlmostEqual(res, 2.0)
 
+    def test_area_negative_numbers(self):
+        with self.assertRaises(ValueError):
+            res = area(-2.5, -1.6)
+
     # Тесты для функции perimeter
     def test_perimeter_positive_integers(self):
         res = perimeter(3, 4, 5)
@@ -111,3 +115,9 @@ class TriangleTestCase(unittest.TestCase):
     def test_perimeter_precise_decimals(self):
         res = perimeter(1.25, 2.75, 3.5)
         self.assertAlmostEqual(res, 7.5)
+
+    def test_perimeter_negative_numbers(self):
+        with self.assertRaises(ValueError):
+            res = perimeter(-2.5, -1.6, -100)
+
+    

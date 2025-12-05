@@ -57,6 +57,10 @@ class SquareTestCase(unittest.TestCase):
         res = area(0.1)
         self.assertAlmostEqual(res, 0.01)
 
+    def test_area_negative_numbers(self):
+        with self.assertRaises(ValueError):
+            res = area(-0.5)
+
     # Тесты для функции perimeter
     def test_perimeter_positive_integer(self):
         res = perimeter(5)
@@ -85,3 +89,7 @@ class SquareTestCase(unittest.TestCase):
     def test_perimeter_small_decimal(self):
         res = perimeter(0.1)
         self.assertAlmostEqual(res, 0.4)
+    
+    def test_perimeter_negative_numbers(self):
+        with self.assertRaises(ValueError):
+            res = perimeter(-0.5)

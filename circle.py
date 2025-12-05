@@ -79,6 +79,10 @@ class CircleTestCase(unittest.TestCase):
         expected = math.pi * 1.5625
         self.assertAlmostEqual(res, expected)
 
+    def test_area_negative_numbers(self):
+        with self.assertRaises(ValueError):
+            res = area(-0.5)
+
     # Тесты для функции perimeter
     def test_perimeter_positive_integer(self):
         res = perimeter(5)
@@ -129,3 +133,7 @@ class CircleTestCase(unittest.TestCase):
         res = perimeter(1.25)
         expected = 2 * math.pi * 1.25
         self.assertAlmostEqual(res, expected)
+
+    def test_perimeter_negative_numbers(self):
+        with self.assertRaises(ValueError):
+            res = perimeter(-0.5)
