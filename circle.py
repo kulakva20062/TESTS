@@ -40,7 +40,6 @@ class CircleTestCase(unittest.TestCase):
         self.assertAlmostEqual(res, expected)
 
     def test_area_decimal_number(self):
-        res = area(3.5)
         expected = math.pi * 12.25
         self.assertAlmostEqual(res, expected)
 
