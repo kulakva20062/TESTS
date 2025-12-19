@@ -1,27 +1,23 @@
-name: Tests
+name: Python CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ "master" , "main" ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ "master" , "main" ]
 
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+  build:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ['3.11']
-
+    runs-on: ${{ matrix.os }} 
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Python 3.11  
-      uses: actions/setup-python@v6.1.0
-    
-    - name: Run tests
-      run: python -m unittest discover -s . -p "*test*.py"
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6.1.0
+        with:
+          python-version: '3.14' 
+      - name: Run tests with pytest
+        run: python -m unittest discover -s . -p "*test*.py"
